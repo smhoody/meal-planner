@@ -1,5 +1,5 @@
 """
-File: meal-planner.py
+File: MealPlanner.py
 Author: Steven Hoodikoff
 Date: 7 May 2021
 """
