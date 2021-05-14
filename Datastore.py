@@ -4,6 +4,8 @@ Author: Steven Hoodikoff
 Date: 7 May 2021
 """
 import json
+import pymongo
+from pymongo import MongoClient
 from functools import reduce
 
 class Datastore():
@@ -11,15 +13,19 @@ class Datastore():
 
     def __init__(self):
         """Instantiate with recipes and ingredients"""
-        self._data = self.__getData()
-        self._ingredients = self._data["ingredients"]
-
-        self._recipes = self._data["recipes"]
-        self._meats = self._ingredients["meats"]
-        self._vegetables = self._ingredients["vegetables"]
-        self._spices = self._ingredients["spices"]
-        self._extras = self._ingredients["extras"]
+        self._database = self.__getDatabase()
+        self._ingredients = self._database["ingredients"] #from ingredients collection
         
+        self._meats = self._ingredients.find_one({"_id":"Meats"})["ingredients"]
+        self._vegetables = self._ingredients.find_one({"_id":"Vegetables"})["ingredients"]
+        self._spices = self._ingredients.find_one({"_id":"Spices"})["ingredients"]
+        self._extras = self._ingredients.find_one({"_id":"Extras"})["ingredients"]
+
+        self._recipes = {}
+        #change recipe format to {"name":"ingredients"}
+        for recipe in self._database["recipes"].find({}): #from recipes collection
+            self._recipes[recipe.get("_id")] = recipe.get("ingredients", None)
+
     #Accessors
     def getRecipes(self):
         """Get dictionary of recipes"""
@@ -164,11 +170,13 @@ class Datastore():
         return recipeNames, recipeScores
     
 
-    def __getData(self):
-        """Read all data from the database
+    def __getDatabase(self):
+        """Retrieve collections from MealPlanner database on MongoDB
         :return: dict
         """
-        with open("content\\database.json", 'r') as file:
-            data = json.load(file)
+        with open("content\\DB_string.txt", 'r') as f:
+            connect_string = f.readline().strip()
+
+        cluster = MongoClient(connect_string)
         
-        return data
+        return cluster["MealPlanner"]
