@@ -1,0 +1,104 @@
+:root{
+    --item-color: #6575b4
+}
+
+body {
+    background-color: rgb(81, 89, 120);
+}
+
+header {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    font-family: 'Courier New', Courier, monospace;
+    font-variant: small-caps;
+    margin: 1px;
+}
+
+#search-tools {
+    position: fixed;
+    top: 59%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#search-button {
+    font-size: 2rem;
+    color: var(--item-color);
+    text-decoration: none;
+    position: fixed;
+    top: 112%;
+    left: 28%;
+    transform: translate(-10%, -80%);
+    border-radius: 0.25em;
+    padding: 0.10em 0.2em;
+}
+#search-button:hover {
+    color: #1b2033;
+    background: #3c466a55;
+    text-shadow: none;
+    box-shadow: 0 0 0.7em 0 #121625d4;
+}
+
+#search-field {
+    position: fixed;
+    top: -10%;
+    left: 2%;
+    font-size: 25px;
+    border: none;
+    background: transparent;
+    color: rgba(223, 223, 223, 0.898);
+    padding-bottom: 3px;
+    border-bottom: 2px solid var(--item-color);
+}
+
+#ingredients-box {
+    color: var(--item-color);
+    text-align: center;
+    text-indent: -24px;
+    border: black 0.1em solid;
+    padding: 0.2em 0.2em;
+    font-size: 20px;
+    width: 20rem;
+    height: 25rem;
+    overflow: hidden;
+    overflow-y:scroll;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    border: 0px solid black;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: black;  
+    border-radius: 10px;
+}
+
+.ingredient {
+    font-family: "Georgia";
+    font-size: 1.2rem;
+}
+
+.ingredient:hover,
+.ingredient:focus {
+    color:#5674eb;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+a { 
+    color: var(--title-clr);
+    text-decoration: none;
+}

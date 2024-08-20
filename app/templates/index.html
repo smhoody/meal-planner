@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MealPlanner</title>
+        <link rel="stylesheet" href="../static/css/styles.css">
+        <script src="../static/js/script.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <h2>MealPlanner</h2>
+        </header>
+        <div id="input-sec">
+            <form action='' method="POST" id="search-name" role="form">
+                <label for="recipe-name">Recipe Name</label>
+                <input
+                    type="text"
+                    id="recipe-name"
+                    name="recipe-name"
+                    placeholder="Lemon Chicken"
+                >
+                <input
+                    type="submit"
+                    name="Submit"
+                    id="submit-name-search"
+                    value="SEARCH"
+                    onclick='submit_name()'
+                >
+            </form>
+
+            <!-- <form action='' method="POST" id="search-ing" role="form">
+                <div id="search-tools">
+                    <a id="search-button" href="#" onclick='submit_ingredients()'>SEARCH</a>
+        
+                    <input 
+                        id="search-field" 
+                        type="text" 
+                        placeholder="search ingredient..." 
+                        onkeyup="searchFilter()"
+                    >
+        
+                    <nav id="ingredients-box">
+                        <ul class="ingredient-list" id="ing-list">
+                            <li><a class="ingredient" href="javascript:selectIngredient()">MUSHROOMS</a></li>
+                            <li><a class="ingredient" href="#">CARROTS</a></li>
+                            <li><a class="ingredient" href="#">BELL PEPPER</a></li>
+                            <li><a class="ingredient" href="#">ONION</a></li>
+                            <li><a class="ingredient" href="#">GARLIC</a></li>
+                            <li><a class="ingredient" href="#">GINGER</a></li>
+                            <li><a class="ingredient" href="#">POTATO</a></li>
+                            <li><a class="ingredient" href="#">SPINACH</a></li>
+                            <li><a class="ingredient" href="#">TOMATO</a></li>
+                            <li><a class="ingredient" href="#">CELERY</a></li>
+                            <li><a class="ingredient" href="#">CUCUMBER</a></li>
+                            <li><a class="ingredient" href="#">EGGPLANT</a></li>
+                            <li><a class="ingredient" href="#">OLIVES</a></li>
+                            <li><a class="ingredient" href="#">BROCCOLI</a></li>
+                            <li><a class="ingredient" href="#">CHICKEN</a></li>
+                            <li><a class="ingredient" href="#">PORK</a></li>
+                            <li><a class="ingredient" href="#">BEEF</a></li>
+                            <li><a class="ingredient" href="#">SALMON</a></li>
+                            <li><a class="ingredient" href="#">LAMB</a></li>
+                            <li><a class="ingredient" href="#">BARBECUE SAUCE</a></li>
+                            <li><a class="ingredient" href="#">HOT SAUCE</a></li>
+                            <li><a class="ingredient" href="#">SOY SAUCE</a></li>
+                            <li><a class="ingredient" href="#">SRIRACHA SAUCE</a></li>
+                            <li><a class="ingredient" href="#">CUMIN</a></li>
+                            <li><a class="ingredient" href="#">SALT</a></li>
+                            <li><a class="ingredient" href="#">PEPPER</a></li>
+                            <li><a class="ingredient" href="#">BASIL</a></li>
+                            <li><a class="ingredient" href="#">OREGANO</a></li>
+                            <li><a class="ingredient" href="#">CURRY</a></li>
+                            <li><a class="ingredient" href="#">THYME</a></li>
+                            <li><a class="ingredient" href="#">TURMERIC</a></li>
+                            <li><a class="ingredient" href="#">CHILI POWDER</a></li>
+                            <li><a class="ingredient" href="#">MASALA POWDER</a></li>
+                            <li><a class="ingredient" href="#">MILK</a></li>
+                            <li><a class="ingredient" href="#">EGG</a></li>
+                            <li><a class="ingredient" href="#">CHEESE</a></li>
+                            <li><a class="ingredient" href="#">YOGURT</a></li>
+                            <li><a class="ingredient" href="#">BUTTER</a></li>
+                            <li><a class="ingredient" href="#">LEMON</a></li>
+                            <li><a class="ingredient" href="#">LIME</a></li>
+                            <li><a class="ingredient" href="#">APPLE</a></li>
+                            <li><a class="ingredient" href="#">ORANGE</a></li>
+                            <li><a class="ingredient" href="#">PINEAPPLE</a></li>
+                            <li><a class="ingredient" href="#">RAISIN</a></li>
+                            <li><a class="ingredient" href="#">RICE</a></li>
+                            <li><a class="ingredient" href="#">OLIVE OIL</a></li>
+                            <li><a class="ingredient" href="#">WINE</a></li>
+                            <li><a class="ingredient" href="#">HONEY</a></li>
+                            <li><a class="ingredient" href="#">SUGAR</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+            </form> -->
+        </div>
+    </body>
+</html>
