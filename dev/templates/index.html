@@ -12,7 +12,7 @@
             <h2>MealPlanner</h2>
         </header>
         <div id="input-sec">
-            <form action='' method="POST" id="search-name" role="form">
+            <form action='' method="GET" id="search-name" role="form" onsubmit="return submit_name(event)">
                 <label for="recipe-name">Recipe Name</label>
                 <input
                     type="text"
@@ -25,7 +25,6 @@
                     name="Submit"
                     id="submit-name-search"
                     value="SEARCH"
-                    onclick='submit_name()'
                 >
             </form>
 

@@ -46,31 +46,22 @@ function searchFilter() {
 }
 
 
-async function submit_name() {
-    console.log("name submit clicked");
-        // data sent from the POST request
-        var formData = new FormData(document.forms[0]);
+async function submit_name(event) {
+  event.preventDefault();
 
-        // get all form keys and values
-        var obj = Object.fromEntries(Array.from(formData.keys())
-            .map(key => [key, formData.getAll(key).length > 1 ?
-                formData.getAll(key) : formData.get(key)]))
+  let recipeName = document.getElementById("recipe-name").value;
+  let encodedName = encodeURIComponent(recipeName);
 
-        var jsonreq = (`${JSON.stringify(obj)}`);
-
-        const response = await fetch('http://127.0.0.1:8000/v1/search-recipe/', {
-        method: "POST",
-        body: jsonreq,
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-    });
+  const response = await fetch(`http://127.0.0.1:8000/recipe?query=${encodedName}`, {
+  method: "GET", 
+  headers: {"Content-type": "application/json; charset=UTF-8"}
+  });
  
-    const responseText = await response.text();
-    console.log(responseText); // logs 'OK'
+  const responseText = await response.text();
 }
 
 
 async function submit_ingredients() {
-    console.log("submit ingredients clicked");
      // data sent from the POST request
      var formData = new FormData(document.forms[0])
 
@@ -88,7 +79,6 @@ async function submit_ingredients() {
    })
  
    const responseText = await response.text();
-   console.log(responseText); // logs 'OK'
    var index_page = document.getElementById("answer");
    index_page.style.color = "blue";
    if(JSON.stringify(responseText).indexOf('overlap') > -1){index_page.style.color = "red"};
